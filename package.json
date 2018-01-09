@@ -1,0 +1,25 @@
+{
+  "name": "spgateway-api",
+  "version": "0.1.0",
+  "description": "智付通API串接, MPG API, Periodical API, Creditcard Collect Refund API, Creditcard Deauthorize API, Transaction API",
+  "main": "spgateway.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "spgateway",
+    "智付通金流",
+    "信用卡,ATM,超商",
+    "定期定額",
+    "交易查詢"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yozian/spgateway.git"
+  },
+  "author": "yozian",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  }
+}
