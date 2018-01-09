@@ -6,10 +6,10 @@
 
 ## 已實作功能
 
-  * MPG API
-  * Periodical API
-  * Creditcard Collect Refund API
-  * Creditcard Deauthorize API
+  * MPG API (v1.2)
+  * Periodical API (v1.0)
+  * Creditcard Collect Refund API (v1.0)
+  * Creditcard Deauthorize API (v1.0)
   * Transaction API
   
 ## 範例
