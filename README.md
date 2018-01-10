@@ -24,7 +24,8 @@
             true, //(true for a dry run)
             your MerchantID,
             your HashKey,
-            your HashIV
+            your HashIV,
+            true // if you want to print info in console to debug. default is false
         );
 
         // crate payModel
@@ -53,7 +54,18 @@
                 .catch((err)=>{
                     // exception or checkCode validation fails
                 })
-      
+
+### Debug Logger
+
+    const spgateway = new SpGateway(
+            true, //(true for a dry run)
+            your MerchantID,
+            your HashKey,
+            your HashIV,
+            true // if you want to print info to debug, default is false
+        );
+    
+
 ## 關於
   
   歡迎 fork & pull request    
