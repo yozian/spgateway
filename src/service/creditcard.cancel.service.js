@@ -59,6 +59,11 @@ class CreditCardCloseService {
                 let model = JSON.parse(result);
                 // validate checkCode
                 let resultModel = model.Result;
+                
+                if (model.Status !== "SUCCESS") {
+                    return model;
+                }
+                
                 let checkCode = self.validationHelper.genCreditCardCancelCheckCode(resultModel.Amt, resultModel.MerchantOrderNo, resultModel.TradeNo);
                 if (checkCode === resultModel.CheckCode) {
                     return model;

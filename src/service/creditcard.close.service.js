@@ -27,7 +27,7 @@ class CreditCardCloseService {
      *
      * @param {*} merchantOrderNo
      * @param {*} amt
-     * @returns {Promise} {"Status":"SUCCESS","Message":"退款資料新增成功","Result":{"MerchantID":"MS11237061","Amt":101,"MerchantOrderNo":"1491382445612","TradeNo":"17040516541391125"}}
+     * @returns {Promise} // { Status: 'SUCCESS', Message: '請款資料新增成功_模擬信用卡請款成功', Result: { MerchantID: 'MS13034418', Amt: 2487, MerchantOrderNo: 'SB180111154208JIVO33', TradeNo: '18011115432225613' } }
      *
      */
     requestPayment(merchantOrderNo, amt) {
@@ -66,7 +66,7 @@ class CreditCardCloseService {
      *
      * @param {*} merchantOrderNo
      * @param {*} amt
-     * @returns {Promise} {"Status":"TRA10045","Message":"該筆交易正在退款中或退款失敗","Result":{"MerchantID":"MS11237061","Amt":101,"MerchantOrderNo":"1491382445612","TradeNo":"17040516541391125"}}
+     * @returns {Promise} {"Status":"SUCCESS","Message":"退款資料新增成功","Result":{"MerchantID":"MS11237061","Amt":101,"MerchantOrderNo":"1491382445612","TradeNo":"17040516541391125"}}
      */
     refund(merchantOrderNo, amt) {
         let host = this.config.host;
@@ -94,6 +94,7 @@ class CreditCardCloseService {
         return https
             .post(reqOption, postData)
             .then((result) => {
+                log.debug("raw response", result);
                 return JSON.parse(result);
             });
     }

@@ -63,9 +63,11 @@ class TradeInfoService {
                 log.debug("raw response", result);
                 let model = JSON.parse(result);
                 let resultModel = model.Result;
-                if (resultModel === "") {
-                    return Promise.reject(new Error(model.Message));
+                
+                if(model.Status !== "SUCCESS"){
+                    return model;
                 }
+                
                 let checkCode = self.validationHelper.genQryTrdInfoChkCode(resultModel.Amt, resultModel.MerchantOrderNo, resultModel.TradeNo);
                 if (checkCode === resultModel.CheckCode) {
                     return model;

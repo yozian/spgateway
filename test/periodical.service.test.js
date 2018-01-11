@@ -4,27 +4,26 @@ const spgateway = require("./spgateway.provider");
 
 const perRes = require("./resource/periodical.creditcard");
 
-describe('validation', function () {
+describe('periodical service', function () {
   const periodicalService = spgateway.createPeriodicalService();
 
-  describe('periodical pay form', function () {
 
     describe("periodical parse notification", function () {
-      it('should be the same', function () {
+      it('should be the same', function (done) {
         let model = perRes.responseBody;
 
         periodicalService
           .parseNotification(model)
           .then((notify) => {
             assert.equal(notify.Result.PeriodAmt, "250");
+            done();
           })
           .catch((err) => {
-            assert.fail(err);
+            done(err)
           })
 
       });
 
     })
-  });
 
 });

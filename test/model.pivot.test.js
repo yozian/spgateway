@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const spgateway = require("./spgateway.provider");
 
-describe('modelPivot', function () {
+describe('model pivot', function () {
   const mpgService = spgateway.createMpgService();
 
   describe('mpg models', function () {

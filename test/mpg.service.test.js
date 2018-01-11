@@ -4,7 +4,7 @@ const spgateway = require("./spgateway.provider");
 
 const mpgRes = require("./resource/mpg.creditcard");
 
-describe('validation', function () {
+describe('mpg service', function () {
   const mpgService = spgateway.createMpgService();
 
   describe('mpg checkValue', function () {
@@ -24,21 +24,25 @@ describe('validation', function () {
       assert.equal(checkValue, expected);
     });
 
-    describe("mpg parse notification", function () {
-      it('should pass without error', function () {
-        let jsonData = mpgRes.responseBody.JSONData;
-        
-        mpgService.parseNotification(jsonData)
-        .then((notify)=>{
-          assert.equal(notify.Status, "SUCCESS");
-        })
-        .catch((err)=>{
-           assert.fail(err);
-        })
-        
-      });
-
-    })
+    
   });
+  
+  
+  describe("mpg parse notification", function () {
+    it('should pass without error', function (done) {
+      let jsonData = mpgRes.responseBody.JSONData;
+
+      mpgService.parseNotification(jsonData)
+        .then((notify) => {
+          assert.equal(notify.Status, "SUCCESS");
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        })
+     
+    });
+
+  })
 
 });
