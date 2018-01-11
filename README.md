@@ -6,11 +6,11 @@
 
 ## 已實作功能
 
-  * MPG API (v1.2)
-  * Periodical API (v1.0)
-  * Creditcard Collect Refund API (v1.0)
-  * Creditcard Deauthorize API (v1.0)
-  * Transaction API
+  * [MPG API (v1.2)](https://www.spgateway.com/dw_files/info_api/spgateway_gateway_MPGapi_V1_0_3.pdf)
+  * [Periodical API (v1.0)](https://www.spgateway.com/dw_files/info_api/spgateway_gateway_periodical_api_V1_0_6.pdf)
+  * [Creditcard Collect Refund API (v1.0)](https://www.spgateway.com/dw_files/info_api/gateway_creditcard_collect_refund_api_V1_0_0.pdf)
+  * [Creditcard Deauthorize API (v1.0)](https://www.spgateway.com/dw_files/info_api/gateway_creditcard_deauthorize_api_V1_0_0.pdf)
+  * [Transaction API](https://www.spgateway.com/dw_files/info_api/spgateway_gateway_Transaction_api_V1_0_1.pdf)
   
 ## 範例
 
