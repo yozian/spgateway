@@ -1,9 +1,12 @@
-const logger = require("./lib/logger");
+const logger = require("../lib/logger");
 const log = logger.createLog("TradeInfoService");
 const querystring = require("querystring");
-const https = require("./lib/https.client");
-const ValidationHelper = require("./lib/validation.helper");
-const TradeInfoModel = require("./model/trade.info.model");
+const https = require("../lib/https.client");
+const ValidationHelper = require("../lib/validation.helper");
+
+
+const modelPivot = require("../model/mode.pivot");
+const TradeInfoModel = modelPivot.TradeInfo.TradeInfoModel;
 
 const tradeModelProps = Object.getOwnPropertyNames(new TradeInfoModel());
 
@@ -70,6 +73,10 @@ class TradeInfoService {
                     return Promise.reject(new Error("CheckCode Validation Failed"));
                 }
             });
+    }
+    
+    get Models() {
+        return modelPivot.TradeInfo;
     }
 }
 

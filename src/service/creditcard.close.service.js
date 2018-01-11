@@ -1,10 +1,11 @@
-const logger = require("./lib/logger");
+const logger = require("../lib/logger");
 const log = logger.createLog("CreditCardCloseService");
 const querystring = require("querystring");
-const https = require("./lib/https.client");
-const CreditCardCloseModel = require("./model/creditcard.close.model");
+const https = require("../lib/https.client");
+const AES256 = require("../lib/aes256");
 
-const AES256 = require("./lib/aes256");
+const modelPivot = require("../model/mode.pivot");
+const CreditCardCloseModel = modelPivot.CreditCard.CreditCardCloseModel;
 
 const spApiVersion = "1.0";
 
@@ -95,6 +96,10 @@ class CreditCardCloseService {
             .then((result) => {
                 return JSON.parse(result);
             });
+    }
+    
+    get Models() {
+        return modelPivot.CreditCard;
     }
 }
 

@@ -1,12 +1,13 @@
-const logger = require("./lib/logger");
+const logger = require("../lib/logger");
 const log = logger.createLog("CreditCardCloseService");
 const querystring = require("querystring");
-const https = require("./lib/https.client");
-const CreditCardCancelModel = require("./model/creditcard.cancel.model");
-const ValidationHelper = require("./lib/validation.helper");
-const Aes256 = require("./lib/aes256");
+const https = require("../lib/https.client");
+const ValidationHelper = require("../lib/validation.helper");
+const AES256 = require("../lib/aes256");
+const modelPivot = require("../model/mode.pivot");
+const CreditCardCancelModel = modelPivot.CreditCard.CreditCardCancelModel;
 
-let spApiVersion = "1.0";
+const spApiVersion = "1.0";
 
 /**
  * 信用卡取消授權
@@ -19,7 +20,7 @@ class CreditCardCloseService {
      */
     constructor(config) {
         this.config = config;
-        this.aes = new Aes256(config.HashKey, config.HashIV);
+        this.aes = new AES256(config.HashKey, config.HashIV);
         this.validationHelper = new ValidationHelper(config);
     }
 
@@ -65,6 +66,10 @@ class CreditCardCloseService {
                     return Promise.reject("CheckCode Validation Failed");
                 }
             });
+    }
+    
+    get Models() {
+        return modelPivot.CreditCard;
     }
 
 }

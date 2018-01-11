@@ -1,14 +1,16 @@
-const logger = require("./lib/logger");
+const logger = require("../lib/logger");
 const log = logger.createLog("PeriodicalService");
-const SHA256 = require("./lib/sha256");
-const DataChainGenerator = require("./lib/data.chain.generator");
-const ValidationHelper = require("./lib/validation.helper");
-const payFormGenerator = require("./lib/payform.generator");
-const MpgPayModel = require("./model/mpg.pay.model");
-const MpgNotifyModel = require("./model/mpg.notify.model");
 
+const ValidationHelper = require("../lib/validation.helper");
+const payFormGenerator = require("../lib/payform.generator");
+
+const SHA256 = require("../lib/sha256");
 const shaEncrypt = new SHA256("MyTokenSecrete");
-const mpgModelProps = Object.getOwnPropertyNames(new MpgPayModel());
+
+const modelPivot = require("../model/mode.pivot");
+const MpgPayModel = modelPivot.MPG.MpgPayModel;
+const MpgNotifyModel = modelPivot.MPG.MpgNotifyModel;
+
 
 const spApiVersion = "1.1";
 
@@ -22,13 +24,19 @@ class MpgService {
         this.apiUrl = `https://${config.host}/MPG/mpg_gateway`;
         this.validationHelper = new ValidationHelper(config);
     }
-
+    
+    
+    /**
+     * 
+     * @returns {MpgPayModel}
+     */
     createMpgPayModel() {
         return new MpgPayModel();
     }
 
     /**
-     * 付款
+     * 付款 html form
+     * @returns {string}
      */
     getAutoPayForm(payModel) {
         let model = new MpgPayModel();
@@ -66,12 +74,9 @@ class MpgService {
                 }
             });
     }
-
+    
     get Models() {
-        return {
-            MpgPayModel: MpgPayModel,
-            MpgNotifyModel: MpgNotifyModel
-        };
+        return modelPivot.MPG;
     }
 }
 

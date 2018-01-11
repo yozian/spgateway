@@ -1,11 +1,14 @@
-const logger = require("./lib/logger");
+const logger = require("../lib/logger");
 const log = logger.createLog("PeriodicalService");
-const AES256 = require("./lib/aes256");
-const ValidationHelper = require("./lib/validation.helper");
-const payFormGenerator = require("./lib/payform.generator");
-const PeriodicalFormPayModel = require("./model/periodical.form.pay.model");
-const PeriodicalPayModel = require("./model/periodical.pay.model");
-const PeriodicalNotifyModel = require("./model/periodical.notify.model");
+const AES256 = require("../lib/aes256");
+const ValidationHelper = require("../lib/validation.helper");
+const payFormGenerator = require("../lib/payform.generator");
+
+const modelPivot = require("../model/mode.pivot");
+const PeriodicalFormPayModel = modelPivot.Periodical.PeriodicalFormPayModel;
+const PeriodicalPayModel = modelPivot.Periodical.PeriodicalPayModel;
+const PeriodicalNotifyModel = modelPivot.Periodical.PeriodicalNotifyModel;
+
 const spApiVersion = "1.0";
 
 class PeriodicalService {
@@ -41,11 +44,11 @@ class PeriodicalService {
         let formModel = new PeriodicalFormPayModel();
         formModel.MerchantID_ = this.config.MerchantID;
         formModel.PostData_ = this.aes256.encrypt(plainDataChain);
-        
+
         log.debug("payModel", payModel);
-        
+
         let html = payFormGenerator(formModel, this.apiUrl);
-        
+
         log.debug("payFormHtml", html);
         return html;
     }
@@ -78,6 +81,10 @@ class PeriodicalService {
                 }
                 return rtnModel;
             });
+    }
+
+    get Models() {
+        return modelPivot.Periodical;
     }
 }
 

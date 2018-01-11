@@ -1,11 +1,10 @@
 const logger = require("./lib/logger");
 const log = logger.createLog("spgateway");
-const MpgService = require("./mpg.service");
-const PeriodicalService = require("./periodical.service");
-const TradeInfoService = require("./trade.info.service");
-const CreditCardCloseService = require("./creditcard.close.service");
-const CreditCardCancelService = require("./creditcard.cancel.service");
-
+const MpgService = require("./service/mpg.service");
+const PeriodicalService = require("./service/periodical.service");
+const TradeInfoService = require("./service/trade.info.service");
+const CreditCardCloseService = require("./service/creditcard.close.service");
+const CreditCardCancelService = require("./service/creditcard.cancel.service");
 
 module.exports = class SpGateway {
 
@@ -39,6 +38,5 @@ module.exports = class SpGateway {
     createCreditCardCancelService() {
         return new CreditCardCancelService(this.configuration);
     }
-
 
 }
