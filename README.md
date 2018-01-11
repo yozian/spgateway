@@ -31,7 +31,7 @@ const spgateway = new SpGateway(
 
 // crate payModel
 let payModel = mpgService.createMpgPayModel();
-// set
+// set properties
 payModel.MerchantOrderNo = "myordernohere";
 payModel.NotifyURL = "http://mysite.com/api/spgateway/notify";
 payModel.ReturnURL = "http://mysite.com/api/spgateway/return";
@@ -50,14 +50,111 @@ let payFormHtml = mpgService.getAutoPayForm(payModel);
 // take express request as example
 let JSONData = request.body.JSONData;
 
-mpgService.parseNotification(JSONData)
-        .then((notify)=>{
-            // update your order here
-        })
-        .catch((err)=>{
-            // exception or checkCode validation fails
-        })
+mpgService
+  .parseNotification(JSONData)
+  .then((notify) => {
+      // update your order here
+  })
+  .catch((err) => {
+      // exception or checkCode validation fails
+  })
 ```   
+
+### Period Service (定期定額)
+
+ * 付款(建立付款表單)
+ 
+```javascript
+
+let periodService = spgateway.createPeriodicalService();
+let payModel = periodService.createPeriodicalPayModel();
+
+// set properties
+payModel.PeriodAmt = 829;
+
+// create pay form html
+let payFormHtml = periodService.getAutoPayForm(payModel);
+
+
+```
+
+  * 接收通知(notify & return)
+  
+```javascript
+// take express request as example
+let body = request.body; // it would be { "Period": "xxxxx..." }
+
+periodService
+  .parseNotification(body)
+  .then((notify) => {
+      // update your order here
+  })
+  .catch((err) => {
+      // exception or checkCode validation fails
+  })
+```   
+
+### 交易查詢
+
+```javascript
+let tradeInfoService = spgateway.createTradeInfoService();
+
+tradeInfoService.queryOrder("yourOrderNoHere", 200)
+  .then((model) => {
+    // success
+
+  })
+  .catch((err) => {
+    // if check value validation fails or exception
+  })
+  
+```   
+
+### 信用卡取消授權
+
+```javascript
+let cardCancelService = spgateway.createCreditCardCancelService();
+
+cardCancelService
+  .CancelTransaction("yourOrderNoHere", 200)
+  .then((model) => {
+      // success
+      
+  })
+  .catch((err) => {
+     // if status !== success or exception
+  })
+  
+```
+
+### 信用卡請/退款
+
+```javascript
+let cardloseService = spgateway.createCreditCardCloseService();
+
+// 請款
+cardloseService
+  .requestPayment("yourOrderNoHere", 200)
+  .then((model) => {
+    
+  })
+  .catch((err) => {
+    
+  })
+  
+// 退款
+cardloseService
+  .refund("yourOrderNoHere", 200)
+  .then((model) => {
+    
+  })
+  .catch((err) => {
+    
+  })
+  
+```
+
+
 ### Debug Logger
 
 ```javascript
