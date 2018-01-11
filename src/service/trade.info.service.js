@@ -5,7 +5,7 @@ const https = require("../lib/https.client");
 const ValidationHelper = require("../lib/validation.helper");
 
 
-const modelPivot = require("../model/mode.pivot");
+const modelPivot = require("../model/model.pivot");
 const TradeInfoModel = modelPivot.TradeInfo.TradeInfoModel;
 
 const tradeModelProps = Object.getOwnPropertyNames(new TradeInfoModel());
@@ -75,6 +75,9 @@ class TradeInfoService {
             });
     }
     
+    /**
+     * @returns {modelPivot.TradeInfo}
+     */
     get Models() {
         return modelPivot.TradeInfo;
     }

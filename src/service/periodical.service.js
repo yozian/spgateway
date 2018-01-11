@@ -4,7 +4,7 @@ const AES256 = require("../lib/aes256");
 const ValidationHelper = require("../lib/validation.helper");
 const payFormGenerator = require("../lib/payform.generator");
 
-const modelPivot = require("../model/mode.pivot");
+const modelPivot = require("../model/model.pivot");
 const PeriodicalFormPayModel = modelPivot.Periodical.PeriodicalFormPayModel;
 const PeriodicalPayModel = modelPivot.Periodical.PeriodicalPayModel;
 const PeriodicalNotifyModel = modelPivot.Periodical.PeriodicalNotifyModel;
@@ -83,6 +83,9 @@ class PeriodicalService {
             });
     }
 
+    /**
+     * @returns {modelPivot.Periodical}
+     */
     get Models() {
         return modelPivot.Periodical;
     }

@@ -4,7 +4,7 @@ const querystring = require("querystring");
 const https = require("../lib/https.client");
 const ValidationHelper = require("../lib/validation.helper");
 const AES256 = require("../lib/aes256");
-const modelPivot = require("../model/mode.pivot");
+const modelPivot = require("../model/model.pivot");
 const CreditCardCancelModel = modelPivot.CreditCard.CreditCardCancelModel;
 
 const spApiVersion = "1.0";
@@ -68,6 +68,9 @@ class CreditCardCloseService {
             });
     }
     
+    /**
+     * @returns {modelPivot.CreditCard}
+     */
     get Models() {
         return modelPivot.CreditCard;
     }

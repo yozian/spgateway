@@ -7,7 +7,7 @@ const payFormGenerator = require("../lib/payform.generator");
 const SHA256 = require("../lib/sha256");
 const shaEncrypt = new SHA256("MyTokenSecrete");
 
-const modelPivot = require("../model/mode.pivot");
+const modelPivot = require("../model/model.pivot");
 const MpgPayModel = modelPivot.MPG.MpgPayModel;
 const MpgNotifyModel = modelPivot.MPG.MpgNotifyModel;
 
@@ -75,6 +75,9 @@ class MpgService {
             });
     }
     
+    /**
+     * @returns {modelPivot.MPG}
+     */
     get Models() {
         return modelPivot.MPG;
     }

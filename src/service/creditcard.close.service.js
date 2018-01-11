@@ -4,7 +4,7 @@ const querystring = require("querystring");
 const https = require("../lib/https.client");
 const AES256 = require("../lib/aes256");
 
-const modelPivot = require("../model/mode.pivot");
+const modelPivot = require("../model/model.pivot");
 const CreditCardCloseModel = modelPivot.CreditCard.CreditCardCloseModel;
 
 const spApiVersion = "1.0";
@@ -44,7 +44,7 @@ class CreditCardCloseService {
         // query string => aes encrypt
         let plainData = querystring.stringify(data);
         log.debug("request plain", plainData);
-        
+
         let encryptData = aes.encrypt(plainData);
         log.debug("request encrypt data", encryptData);
 
@@ -80,7 +80,7 @@ class CreditCardCloseService {
         // query string => aes encrypt
         let plainData = querystring.stringify(data);
         log.debug("request plain", plainData);
-        
+
         let encryptData = aes.encrypt(plainData);
         log.debug("request encrypt data", encryptData);
 
@@ -97,7 +97,10 @@ class CreditCardCloseService {
                 return JSON.parse(result);
             });
     }
-    
+
+    /**
+     * @returns {modelPivot.CreditCard}
+     */
     get Models() {
         return modelPivot.CreditCard;
     }
