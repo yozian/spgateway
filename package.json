@@ -1,6 +1,6 @@
 {
   "name": "spgateway-api",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "智付通API串接, MPG API, Periodical API, Creditcard Collect Refund API, Creditcard Deauthorize API, Transaction API",
   "main": "src/spgateway.js",
   "scripts": {
