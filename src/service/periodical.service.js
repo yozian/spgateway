@@ -56,7 +56,7 @@ class PeriodicalService {
     /**
      *
      * @param {*} jsonString
-     * @returns {Promise}
+     * @returns {Promise<PeriodicalNotifyModel>}
      * {"Status":"SUCCESS","Message":"\u59d4\u8a17\u55ae\u6210\u7acb\uff0c\u4e14\u9996\u6b21\u6388\u6b0a\u6210\u529f","Result":{"MerchantID":"MS11237061","MerchantOrderNo":"wtfvar21493044547363","PeriodType":"M","PeriodAmt":"100","AuthTimes":12,"DateArray":"2017-05-01,2017-06-01,2017-07-01,2017-08-01,2017-09-01,2017-10-01,2017-11-01,2017-12-01,2018-01-01,2018-02-01,2018-03-01,2018-04-01","TradeNo":"17042422355946059","AuthCode":"930637","RespondCode":"00","AuthTime":"20170424223559","CardNo":"400022******1111","EscrowBank":"KGI","AuthBank":"KGI","PeriodNo":"P170424223558pfFygT"}}
      *
      */

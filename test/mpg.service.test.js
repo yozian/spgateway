@@ -2,6 +2,8 @@ const assert = require('assert');
 
 const spgateway = require("./spgateway.provider");
 
+const mpgRes = require("./resource/mpg.creditcard");
+
 describe('validation', function () {
   const mpgService = spgateway.createMpgService();
 
@@ -17,10 +19,26 @@ describe('validation', function () {
         payModel.TimeStamp,
         payModel.Version);
 
-      let actual = "0121EB7392CDCC05872CBC283AB7794754DCF112C4492E643E4D79FB8B6294BB";
+      let expected = "18B9A57C8429F4F1624CC141F3F5F6CBCF09384ED0F910A2EE3871791F349943";
 
-      assert.equal(checkValue, actual);
+      assert.equal(checkValue, expected);
     });
+
+    describe("mpg parse notification", function () {
+      it('should pass without error', function () {
+        let jsonData = mpgRes.responseBody.JSONData;
+        
+        mpgService.parseNotification(jsonData)
+        .then((notify)=>{
+          assert.equal(notify.Status, "SUCCESS");
+        })
+        .catch((err)=>{
+           assert.fail(err);
+        })
+        
+      });
+
+    })
   });
 
 });
