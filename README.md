@@ -1,4 +1,4 @@
-# 智付通API ![](https://travis-ci.org/yozian/spgateway.svg?branch=master)
+# 智付通API ![](https://img.shields.io/npm/dm/spgateway-api.svg?style=flat) ![](https://img.shields.io/npm/v/spgateway-api.svg?style=flat) ![](https://travis-ci.org/yozian/spgateway.svg?branch=master)
 
   簡化實作智付通付款流程與相關功能串接
 
