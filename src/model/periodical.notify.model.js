@@ -18,7 +18,7 @@ module.exports = class PeriodicalNotifyModel extends BaseModel {
         this.mappingFrom(data);
 
     }
-}
+};
 
 class PayResultModel extends BaseModel {
 

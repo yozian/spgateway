@@ -16,4 +16,4 @@ module.exports = class DataChainGenerator {
         return results.join("&");
     }
 
-}
+};

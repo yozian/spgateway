@@ -76,4 +76,4 @@ module.exports = class CreditCardCloseModel extends BaseModel {
         return this;
     }
 
-}
+};

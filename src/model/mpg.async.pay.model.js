@@ -12,7 +12,7 @@ module.exports = class MpgAsyncPayModel extends BaseModel {
         this.mappingFrom(data);
         this.Result = new ResultModel(data ? data.Result : {});
     }
-}
+};
 
 class ResultModel extends BaseModel {
 

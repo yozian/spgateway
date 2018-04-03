@@ -1,11 +1,11 @@
-const Sha256 = require("./sha256");
+const SHA256 = require("./sha256");
 const DataChainGenerator = require("./data.chain.generator");
 
 class ValidationHelper {
 
     constructor(config) {
         this.config = config;
-        this.sha256 = new Sha256(config.HashKey);
+        this.sha256 = new SHA256();
     }
 
     /**

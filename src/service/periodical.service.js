@@ -71,7 +71,7 @@ class PeriodicalService {
                     Status: "",
                     Message: "",
                     Result: {}
-                }
+                };
                 try {
                     rtnModel = JSON.parse(self.aes256.decrypt(encryptedText));
                 } catch (e) {

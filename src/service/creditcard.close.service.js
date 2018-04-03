@@ -112,10 +112,10 @@ function getRequestOption(host, postData) {
         host: host,
         port: 443,
         path: "/API/CreditCard/Close",
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': Buffer.byteLength(postData)
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Length": Buffer.byteLength(postData)
         }
     };
 }

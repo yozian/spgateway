@@ -168,4 +168,4 @@ module.exports = class PeriodicalPayModel extends BaseModel {
         this.mappingFrom(data);
 
     }
-}
+};

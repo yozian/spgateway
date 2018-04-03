@@ -60,4 +60,4 @@ module.exports = class CreditCardCancelModel extends BaseModel {
         return this;
     }
 
-}
+};

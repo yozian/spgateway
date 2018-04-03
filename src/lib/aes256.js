@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 
-class Aes256Crypto {
+class AES256Crypto {
 
     constructor(key, iv) {
         this.key = key;
@@ -24,4 +24,4 @@ class Aes256Crypto {
     }
 }
 
-module.exports = Aes256Crypto;
+module.exports = AES256Crypto;

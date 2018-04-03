@@ -13,9 +13,9 @@ module.exports = {
                 const args = storedArgs.concat(...arguments);
                 log.apply(null, args);
             }
-        }
+        };
     },
     switchLog: function (status) {
         isDebug = status === true;
     }
-}
+};

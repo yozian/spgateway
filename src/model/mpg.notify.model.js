@@ -12,7 +12,7 @@ module.exports = class MpgNotifyModel extends BaseModel {
         this.Result = new PayResultModel();
         this.mappingFrom(data);
     }
-}
+};
 
 class PayResultModel extends BaseModel {
 

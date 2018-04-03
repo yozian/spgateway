@@ -5,7 +5,7 @@ const ValidationHelper = require("../lib/validation.helper");
 const payFormGenerator = require("../lib/payform.generator");
 
 const SHA256 = require("../lib/sha256");
-const shaEncrypt = new SHA256("MyTokenSecrete");
+const shaEncrypt = new SHA256();
 
 const modelPivot = require("../model/model.pivot");
 const MpgPayModel = modelPivot.MPG.MpgPayModel;

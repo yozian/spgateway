@@ -22,4 +22,4 @@ module.exports = class PeriodicalFormPayModel extends BaseModel {
 
         this.mappingFrom(data);
     }
-}
+};

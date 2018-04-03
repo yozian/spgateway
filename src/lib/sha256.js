@@ -1,14 +1,14 @@
 const crypto = require("crypto");
 
-class Sha256 {
-    constructor(key) {
-        this.key = key;
+class SHA256 {
+    constructor() {
+
     }
 
     encrypt(plainText) {
-        let sha = crypto.createHash("sha256", this.key);
+        let sha = crypto.createHash("sha256");
         return sha.update(plainText).digest("hex");
     }
 }
 
-module.exports = Sha256;
+module.exports = SHA256;

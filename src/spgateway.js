@@ -39,4 +39,4 @@ module.exports = class SpGateway {
         return new CreditCardCancelService(this.configuration);
     }
 
-}
+};

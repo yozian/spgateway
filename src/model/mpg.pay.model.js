@@ -38,7 +38,7 @@ module.exports = class MpgPayModel extends BaseModel {
          */
         this.TimeStamp = new Date().getTime();
 
-        this.LangType = "zh-tw"
+        this.LangType = "zh-tw";
 
         /**
             商店訂單編號
@@ -236,4 +236,4 @@ module.exports = class MpgPayModel extends BaseModel {
         this.TokenTerm = "";
         this.mappingFrom(data);
     }
-}
+};

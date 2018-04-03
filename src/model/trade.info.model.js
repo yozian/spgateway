@@ -15,4 +15,4 @@ module.exports = class tradeInfoModel extends BaseModel {
 
         this.mappingFrom(data);
     }
-}
+};
