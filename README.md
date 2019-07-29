@@ -29,6 +29,8 @@ const spgateway = new SpGateway(
     true // if you want to print info in console to debug. default is false
 );
 
+const mpgService = spgateway.createMpgService();
+
 // crate payModel
 let payModel = mpgService.createMpgPayModel();
 // set properties
