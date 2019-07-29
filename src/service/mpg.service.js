@@ -51,6 +51,23 @@ class MpgService {
         log.debug("payFormHtml", html);
         return html;
     }
+    
+    /**
+     * 付款 form data
+     * @returns {string}
+     */
+    getAutoPayData(payModel) {
+        let model = new MpgPayModel();
+        model = Object.assign(model, payModel);
+        model.Version = model.Version || spApiVersion;
+        model.MerchantID = this.config.MerchantID;
+
+        model.TokenTerm = shaEncrypt.encrypt(model.Email).toUpperCase();
+        model.CheckValue = this.validationHelper.genMpgCheckValue(model.Amt, model.MerchantOrderNo, model.TimeStamp, model.Version);
+        log.debug("payModel", payModel);
+        return model;
+    }
+
 
     /**
      *
