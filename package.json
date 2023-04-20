@@ -24,6 +24,6 @@
   "author": "yozian",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^4.1.0"
+    "mocha": "^10.2.0"
   }
 }
